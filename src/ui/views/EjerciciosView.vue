@@ -69,7 +69,7 @@ async function guardar() {
   }
 
   if (ejercicioEditando.value) {
-    await store.actualizar(ejercicioEditando.value.id, form.value)
+    await store.actualizar(ejercicioEditando.value.id, form.value as any)
   } else {
     await store.crear(form.value as any)
   }

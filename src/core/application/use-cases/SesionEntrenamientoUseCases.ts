@@ -3,7 +3,11 @@ import type { SesionEntrenamiento, EntrenamientoEjercicio } from '../../domain/e
 import { generarId } from '../../../infrastructure/utils/id';
 
 export class SesionEntrenamientoUseCases {
-  constructor(private readonly repo: ISesionEntrenamientoRepository) {}
+  private readonly repo: ISesionEntrenamientoRepository;
+
+  constructor(repo: ISesionEntrenamientoRepository) {
+    this.repo = repo;
+  }
 
   async obtenerTodas(): Promise<SesionEntrenamiento[]> {
     return this.repo.findAll();

@@ -19,9 +19,6 @@ const form = ref({
   ejercicios: []
 })
 
-const mesActualStr = computed(() => {
-  return currentDate.value.toISOString().substring(0, 7) // YYYY-MM
-})
 
 const tituloMes = computed(() => {
   return currentDate.value.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' }).toUpperCase()
@@ -79,9 +76,6 @@ function cambiarMes(delta: number) {
   currentDate.value = newDate
 }
 
-function irHoy() {
-  currentDate.value = newDate()
-}
 
 function abrirModalNuevaSesion(fechaStr: string) {
   selectedDate.value = fechaStr

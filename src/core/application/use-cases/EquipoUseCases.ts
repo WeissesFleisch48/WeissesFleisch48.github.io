@@ -3,7 +3,11 @@ import type { Equipo } from '../../domain/entities';
 import { generarId } from '../../../infrastructure/utils/id';
 
 export class EquipoUseCases {
-  constructor(private readonly repo: IEquipoRepository) {}
+  private readonly repo: IEquipoRepository;
+
+  constructor(repo: IEquipoRepository) {
+    this.repo = repo;
+  }
 
   async obtenerTodos(): Promise<Equipo[]> {
     return this.repo.findAll();

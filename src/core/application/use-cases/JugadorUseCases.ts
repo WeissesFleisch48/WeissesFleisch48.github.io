@@ -3,7 +3,11 @@ import type { Jugador } from '../../domain/entities';
 import { generarId } from '../../../infrastructure/utils/id';
 
 export class JugadorUseCases {
-  constructor(private readonly repo: IJugadorRepository) {}
+  private readonly repo: IJugadorRepository;
+
+  constructor(repo: IJugadorRepository) {
+    this.repo = repo;
+  }
 
   async obtenerTodos(): Promise<Jugador[]> {
     return this.repo.findAll();

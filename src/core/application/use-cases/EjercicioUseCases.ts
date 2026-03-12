@@ -3,7 +3,11 @@ import type { Ejercicio, Metrica } from '../../domain/entities';
 import { generarId } from '../../../infrastructure/utils/id';
 
 export class EjercicioUseCases {
-  constructor(private readonly repo: IEjercicioRepository) {}
+  private readonly repo: IEjercicioRepository;
+
+  constructor(repo: IEjercicioRepository) {
+    this.repo = repo;
+  }
 
   async obtenerTodos(): Promise<Ejercicio[]> {
     return this.repo.findAll();

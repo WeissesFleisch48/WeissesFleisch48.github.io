@@ -3,7 +3,11 @@ import type { CategoriaEjercicio } from '../../domain/entities';
 import { generarId } from '../../../infrastructure/utils/id';
 
 export class CategoriaEjercicioUseCases {
-  constructor(private readonly repo: ICategoriaEjercicioRepository) {}
+  private readonly repo: ICategoriaEjercicioRepository;
+
+  constructor(repo: ICategoriaEjercicioRepository) {
+    this.repo = repo;
+  }
 
   async obtenerTodas(): Promise<CategoriaEjercicio[]> {
     return this.repo.findAll();

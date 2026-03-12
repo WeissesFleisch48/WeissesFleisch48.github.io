@@ -6,7 +6,7 @@ import { useEquiposStore } from '../stores/equipos'
 import { useEjerciciosStore } from '../stores/ejercicios'
 import { useJugadoresStore } from '../stores/jugadores'
 import { useResultadosStore } from '../stores/resultados'
-import type { SesionEntrenamiento, Ejercicio, Jugador, ResultadoEjercicio, ValorMetrica } from '../../core/domain/entities'
+import type { ValorMetrica } from '../../core/domain/entities'
 
 const route = useRoute()
 const router = useRouter()
@@ -54,10 +54,10 @@ function inicializarResultados() {
   
   resultadosActuales.forEach(r => {
     if (!map[r.ejercicioId]) map[r.ejercicioId] = {}
-    if (!map[r.ejercicioId][r.jugadorId]) map[r.ejercicioId][r.jugadorId] = {}
+    if (!map[r.ejercicioId]![r.jugadorId]) map[r.ejercicioId]![r.jugadorId] = {}
     
     r.valores.forEach(v => {
-      map[r.ejercicioId][r.jugadorId][v.metricaId] = v.valor
+      map[r.ejercicioId]![r.jugadorId]![v.metricaId] = v.valor
     })
   })
   

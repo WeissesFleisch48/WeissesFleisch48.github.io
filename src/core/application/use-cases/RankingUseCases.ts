@@ -12,16 +12,28 @@ import type {
 } from '../../domain/entities';
 
 export class RankingUseCases {
+  private readonly categoriaRepo: ICategoriaEjercicioRepository;
+  private readonly ejercicioRepo: IEjercicioRepository;
+  private readonly equipoRepo: IEquipoRepository;
+  private readonly jugadorRepo: IJugadorRepository;
+  private readonly resultadoRepo: IResultadoEjercicioRepository;
+
   constructor(
-    private readonly categoriaRepo: ICategoriaEjercicioRepository,
-    private readonly ejercicioRepo: IEjercicioRepository,
-    private readonly equipoRepo: IEquipoRepository,
-    private readonly jugadorRepo: IJugadorRepository,
-    private readonly resultadoRepo: IResultadoEjercicioRepository
-  ) {}
+    categoriaRepo: ICategoriaEjercicioRepository,
+    ejercicioRepo: IEjercicioRepository,
+    equipoRepo: IEquipoRepository,
+    jugadorRepo: IJugadorRepository,
+    resultadoRepo: IResultadoEjercicioRepository
+  ) {
+    this.categoriaRepo = categoriaRepo;
+    this.ejercicioRepo = ejercicioRepo;
+    this.equipoRepo = equipoRepo;
+    this.jugadorRepo = jugadorRepo;
+    this.resultadoRepo = resultadoRepo;
+  }
 
   // Calcula una puntuación normalizada [0-100] para un conjunto de valores de métricas
-  private calcularPuntaje(ejercicioId: string, valores: { metricaId: string; valor: number }[], metricas: { id: string; mayorEsMejor: boolean }[]): number {
+  private calcularPuntaje(_ejercicioId: string, valores: { metricaId: string; valor: number }[], _metricas: { id: string; mayorEsMejor: boolean }[]): number {
     if (valores.length === 0) return 0;
     // Por ahora la puntuación es el promedio de los valores numéricos
     // En el futuro se puede ponderar por importancia de métrica
