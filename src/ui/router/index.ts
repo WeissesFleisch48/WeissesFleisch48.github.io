@@ -84,7 +84,7 @@ router.onError((error, to) => {
     error.name === 'ChunkLoadError'
   ) {
     if (to?.fullPath) {
-      window.location.href = to.fullPath;
+      window.location.hash = to.fullPath; window.location.reload();
     } else {
       window.location.reload();
     }
