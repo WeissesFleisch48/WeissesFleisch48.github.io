@@ -91,7 +91,7 @@ function abrirModalNuevaSesion(fechaStr: string) {
 async function guardar() {
   const nueva = await store.crear(form.value)
   showModal.value = false
-  router.push(`/entrenamiento/${nueva.id}`)
+  router.push(`/entrenamiento/${nueva.id}`).catch(() => {})
 }
 
 function nombreEquipo(id: string) {
@@ -160,7 +160,7 @@ function colorEquipo(id: string) {
               :key="sesion.id"
               class="session-badge"
               :style="{ borderLeftColor: colorEquipo(sesion.equipoId) }"
-              @click="router.push(`/entrenamiento/${sesion.id}`)"
+              @click="router.push(`/entrenamiento/${sesion.id}`).catch(() => {})"
             >
               {{ nombreEquipo(sesion.equipoId) }}
             </div>
