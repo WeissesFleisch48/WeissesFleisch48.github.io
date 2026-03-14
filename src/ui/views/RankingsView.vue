@@ -57,7 +57,7 @@ import { computed } from 'vue'
     </div>
 
     <!-- Filtros Globales -->
-    <div class="card filters-card" style="margin-bottom: 2rem;">
+    <div class="card card-gradient filters-card" style="margin-bottom: 2rem;">
       <div class="grid grid-cols-3" style="gap: 1.5rem; align-items: flex-end;">
         <div class="form-group" style="margin-bottom: 0;">
           <label class="form-label">Filtrar por Equipo</label>

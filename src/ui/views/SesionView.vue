@@ -159,7 +159,7 @@ async function eliminarSesion() {
     </div>
 
     <!-- Gestión de Ejercicios -->
-    <div class="card" style="margin-bottom: 2rem;">
+    <div class="card card-gradient" style="margin-bottom: 2rem;">
       <div style="display: flex; gap: 1rem; align-items: flex-end;">
         <div class="form-group" style="flex: 1; margin-bottom: 0;">
           <label class="form-label">Añadir ejercicio a la sesión</label>

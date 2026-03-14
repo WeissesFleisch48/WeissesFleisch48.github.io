@@ -37,7 +37,7 @@ async function handleLogin() {
 
 <template>
   <div class="login-page">
-    <div class="login-card card fade-in">
+    <div class="login-card card card-gradient fade-in">
       <div class="login-brand">
         <div class="brand-bolt">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="bolt-svg">
