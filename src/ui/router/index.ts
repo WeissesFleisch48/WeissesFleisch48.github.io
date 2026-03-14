@@ -74,4 +74,21 @@ router.beforeEach((to, _, next) => {
   }
 });
 
+router.onError((error, to) => {
+  // If a chunk fails to load, it usually means a new deploy happened.
+  // We catch the error and force a hard reload of the target page
+  // to fetch the new HTML and the new JS bundles.
+  if (
+    error.message.includes('Failed to fetch dynamically imported module') ||
+    error.message.includes('Importing a module script failed') ||
+    error.name === 'ChunkLoadError'
+  ) {
+    if (to?.fullPath) {
+      window.location.href = to.fullPath;
+    } else {
+      window.location.reload();
+    }
+  }
+});
+
 export default router;
